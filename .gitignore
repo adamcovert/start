@@ -1,0 +1,73 @@
+# production
+/build
+
+# resources
+/resources
+
+# dependencies
+/node_modules
+
+# general
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# thumbnails
+._*
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# archives.
+*.7z
+*.jar
+*.rar
+*.zip
+*.gz
+*.tgz
+*.bzip
+*.bz2
+*.xz
+*.lzma
+*.cab
+
+*.iso
+*.tar
+
+*.dmg
+*.xpi
+*.gem
+*.egg
+*.deb
+*.rpm
+*.msi
+*.msm
+*.msp
+
+# misc
+package-lock.json
+.Saved/
+_arc/
+*.log
+*.sublime-*
+.idea
+.publish
+ex_files
+test.pug
+styleguide.pug
