@@ -28,16 +28,6 @@ $modularscale: (
 
   &__content {
     flex-grow: 1;
-    padding-top: 97px;
-    overflow: hidden;
-
-    @media only screen and (min-width: $screen-sm) {
-      padding-top: 102px;
-    }
-
-    @media only screen and (min-width: $screen-md) {
-      padding-top: 132px;
-    }
   }
 
   &__footer-wrapper {
@@ -191,7 +181,7 @@ p {
   hyphenate-limit-last: always;
   hyphenate-limit-zone: 8%;
 
-  &+& {
+  & + & {
     margin-top: 0.5rem;
   }
 }
@@ -239,7 +229,7 @@ dl {
     font-weight: 700;
   }
 
-  dd+dt {
+  dd + dt {
     padding-top: 0.5rem;
   }
 }
