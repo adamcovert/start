@@ -1,14 +1,15 @@
 const {src, dest, series, parallel, watch} = require('gulp')
 const pug = require('gulp-pug')
-const htmlValidator = require('gulp-w3c-html-validator');
+const pugLinter = require('gulp-pug-linter')
+const htmlValidator = require('gulp-w3c-html-validator')
 const del = require('del')
 const sass = require('gulp-sass')
 const csso = require('gulp-csso')
 const browserSync = require('browser-sync').create()
 const webpackStream = require('webpack-stream')
-const svgmin = require('gulp-svgmin');
-const svgstore = require('gulp-svgstore');
-const rename = require('gulp-rename');
+const svgmin = require('gulp-svgmin')
+const svgstore = require('gulp-svgstore')
+const rename = require('gulp-rename')
 const fs = require('fs')
 const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
@@ -54,6 +55,7 @@ exports.writePugMixinsFile = writePugMixinsFile;
 
 function compilePug() {
   return src(`${config.dir.src}pages/**/*.pug`)
+    .pipe(pugLinter({ reporter: 'default' }))
     .pipe(pug({
       pretty: true
     }))
@@ -105,9 +107,7 @@ function compileSass() {
       postcssEasingGradients(),
       objectFitImages()
     ]))
-    .pipe(csso({
-      restructure: false
-    }))
+    .pipe(csso({ restructure: false }))
     .pipe(dest(`${config.dir.build}css`, { sourcemaps: '.' }))
     .pipe(browserSync.stream())
 }
