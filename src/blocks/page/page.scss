@@ -3,6 +3,8 @@ $modularscale: (
   ratio: $augmented-fourth
 );
 
+
+
 @at-root {
 
   @-ms-viewport { // stylelint-disable-line
@@ -22,18 +24,17 @@ $modularscale: (
   line-height: 1.5em;
 
   &__inner {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+
   }
 
   &__content {
     flex-grow: 1;
   }
 
-  &__footer-wrapper {
-    flex-shrink: 0;
-  }
+  &__footer-wrapper {flex-shrink: 0;}
 }
 
 *,
@@ -216,22 +217,6 @@ ol {
       counter-increment: section;
       content: counters(section, '.');
     }
-  }
-}
-
-dl {
-
-  dt,
-  dd {
-    margin-left: 0;
-  }
-
-  dt {
-    font-weight: 700;
-  }
-
-  dd + dt {
-    padding-top: 0.5rem;
   }
 }
 
