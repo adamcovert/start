@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "style:lint": "stylelint \"src/**/*.scss\" --syntax=scss",
+    "style:fix": "stylelint \"src/**/*.scss\" --syntax scss --fix"
   },
   "browserslist": [
     "> 1%",
@@ -40,6 +42,9 @@
     "postcss-inline-svg": "^5.0.0",
     "postcss-object-fit-images": "^1.1.2",
     "pug-lint": "^2.6.0",
+    "stylelint": "^13.7.2",
+    "stylelint-order": "^4.1.0",
+    "stylelint-selector-bem-pattern": "^2.1.0",
     "webpack": "^5.4.0",
     "webpack-stream": "^6.1.0"
   },

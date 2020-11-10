@@ -5,25 +5,26 @@ $modularscale: (
 
 @at-root {
 
-  @-ms-viewport {
+  @-ms-viewport { // stylelint-disable-line
     width: device-width;
   }
 }
 
+
 .s-page {
-  -ms-text-size-adjust: 100%;
+  box-sizing: border-box;
+  min-width: 320px;
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%; // stylelint-disable-line
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -ms-overflow-style: scrollbar;
-  box-sizing: border-box;
-  min-height: 100%;
-  min-width: 320px;
   font-size: 20px;
   line-height: 1.5em;
 
   &__inner {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
   }
 
   &__content {
@@ -44,8 +45,8 @@ $modularscale: (
 body {
   display: flex;
   flex-direction: column;
-  margin: 0;
   min-height: 100%;
+  margin: 0;
   word-break: break-word;
   background-color: $bg-color;
   font-family: $font-family;
@@ -55,7 +56,7 @@ body {
 }
 
 [tabindex='-1']:focus {
-  outline: none !important;
+  outline: none !important; // stylelint-disable-line
 }
 
 [role='button'] {
@@ -63,7 +64,7 @@ body {
 }
 
 [type='search']::-webkit-search-decoration {
-  -webkit-appearance: none;
+  -webkit-appearance: none; // stylelint-disable-line
 }
 
 a,
@@ -87,7 +88,7 @@ button,
 html [type='button'],
 [type='reset'],
 [type='submit'] {
-  -webkit-appearance: button;
+  -webkit-appearance: button; // stylelint-disable-line
 }
 
 button::-moz-focus-inner,
@@ -102,7 +103,7 @@ input[type='date'],
 input[type='time'],
 input[type='datetime-local'],
 input[type='month'] {
-  -webkit-appearance: listbox;
+  -webkit-appearance: listbox; // stylelint-disable-line
 }
 
 textarea {
@@ -147,8 +148,8 @@ a {
 hr {
   box-sizing: content-box;
   height: 0;
-  overflow: visible;
   border: 0;
+  overflow: visible;
   border-top: 1px solid $border-color;
 }
 
