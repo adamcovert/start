@@ -11,7 +11,7 @@ $text-color: #282f33;
 $text-color--lighter: #66828f;
 $text-color--lightest: #d5dadd;
 
-$bg-color: #fff;
+$bg-color: #ffffff;
 $bg-color--shade: #f7fafc;
 $bg-color--dark: $text-color;
 
@@ -23,23 +23,11 @@ $warning: #ffc83f;
 $danger: #fa5e5b;
 
 // Fonts
-$font-family: Lato,
-  -apple-system,
-  BlinkMacSystemFont,
-  'Segoe UI',
-  Roboto,
-  Oxygen-Sans,
-  Ubuntu,
-  Cantarell,
-  'Helvetica Neue',
-  sans-serif;
+$font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto,
+  oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
 
-$font-family--monospace: Menlo,
-  Monaco,
-  Consolas,
-  'Liberation Mono',
-  'Courier New',
-  nospace;
+$font-family--monospace: menlo, monaco, consolas, "Liberation Mono",
+  "Courier New", nospace;
 
 // Misc
 $border-color: rgba($text-color, 0.125);
@@ -48,4 +36,3 @@ $opacity: 0.5;
 $box-shadow: 0 15px 45px -15px rgba($text-color, 0.25);
 $transition-timing: cubic-bezier(0.9, 0.01, 0.01, 1);
 $transition-timing--linear: cubic-bezier(0.165, 0.84, 0.44, 1);
-

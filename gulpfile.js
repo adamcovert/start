@@ -1,7 +1,6 @@
 const {src, dest, series, parallel, watch} = require('gulp')
 const pug = require('gulp-pug')
 const pugLinter = require('gulp-pug-linter')
-const htmlValidator = require('gulp-w3c-html-validator')
 const del = require('del')
 const sass = require('gulp-sass')
 const csso = require('gulp-csso')
@@ -26,7 +25,8 @@ const config = {
     blocks: 'src/blocks/',
     addStyleBefore: [
       './node_modules/modularscale-sass/stylesheets/_modularscale.scss',
-      'src/scss/variables.scss'
+      'src/scss/variables.scss',
+      'src/scss/global.scss'
     ],
   }
 };
@@ -59,7 +59,6 @@ function compilePug() {
     .pipe(pug({
       pretty: true
     }))
-    .pipe(htmlValidator())
     .pipe(dest(config.dir.build))
 }
 exports.compilePug = compilePug;
