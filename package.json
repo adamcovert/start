@@ -19,11 +19,11 @@
     "*.scss": "stylelint --syntax=scss"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.7",
+    "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
-    "autoprefixer": "^10.0.2",
+    "autoprefixer": "^10.0.4",
     "babel-core": "^6.26.3",
-    "babel-loader": "^8.2.1",
+    "babel-loader": "^8.2.2",
     "babel-preset-latest": "^6.24.1",
     "browser-sync": "^2.26.13",
     "css-mqpacker": "^7.0.0",
@@ -41,13 +41,13 @@
     "gulp-svgmin": "^3.0.0",
     "gulp-svgstore": "^7.0.1",
     "modularscale-sass": "^3.0.10",
-    "postcss": "^8.1.9",
+    "postcss": "^8.1.10",
     "postcss-easing-gradients": "^3.0.1",
     "postcss-import": "^13.0.0",
     "postcss-inline-svg": "^5.0.0",
     "postcss-object-fit-images": "^1.1.2",
     "pug-lint": "^2.6.0",
-    "webpack": "^5.6.0",
+    "webpack": "^5.8.0",
     "webpack-stream": "^6.1.1"
   },
   "dependencies": {}
