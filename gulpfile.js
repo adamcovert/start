@@ -24,8 +24,11 @@ const config = {
     build: 'build/',
     blocks: 'src/blocks/',
     addStyleBefore: [
-      './node_modules/modularscale-sass/stylesheets/_modularscale.scss',
+      '../../node_modules/modularscale-sass/stylesheets/_modularscale.scss',
+      '../../node_modules/locomotive-scroll/dist/locomotive-scroll.css',
+      'src/scss/fonts.scss',
       'src/scss/variables.scss',
+      'src/scss/mixins/media.scss',
       'src/scss/global.scss'
     ],
   }
@@ -118,7 +121,7 @@ function buildJs() {
   return src(`${config.dir.src}js/script.js`)
     .pipe(webpackStream({
       mode: 'production',
-      output: { filename: 'script.js' },
+      output: { filename: '[name].js' },
       module: {
         rules: [{
           test: /\.(js)$/,
@@ -163,6 +166,14 @@ exports.copyingImages = copyingImages;
 
 
 
+function copyingFonts() {
+  return src(`${config.dir.src}fonts/*`)
+    .pipe(dest(`${config.dir.build}fonts`))
+}
+exports.copyingFonts = copyingFonts;
+
+
+
 function reload(done) {
   browserSync.reload()
   done()
@@ -177,8 +188,7 @@ function serve() {
     notify: false,
   })
 
-  watch([
-    `${config.dir.src}pages/**/*.pug`, `${config.dir.src}blocks/**/*.pug`, `${config.dir.src}pug/layout.pug`], {events: ['change']}, series(
+  watch([`${config.dir.src}pages/**/*.pug`, `${config.dir.src}blocks/**/*.pug`, `${config.dir.src}pug/layout.pug`], {events: ['change']}, series(
     compilePug,
     reload
   ));
@@ -215,13 +225,18 @@ function serve() {
     copyingImages,
     reload
   ));
+
+  watch(`${config.dir.src}fonts/*`, {events: ['all']}, series(
+    copyingFonts,
+    reload
+  ));
 }
 
 
 
 exports.default = series(
   parallel(clean, writePugMixinsFile),
-  parallel(compilePug, writeSassImportsFile, generateSvgSprite, copyingImages),
+  parallel(compilePug, writeSassImportsFile, generateSvgSprite, copyingImages, copyingFonts),
   parallel(compileSass, buildJs),
   serve
 )

@@ -1,5 +1,8 @@
-@import './node_modules/modularscale-sass/stylesheets/_modularscale.scss';
+@import '../../node_modules/modularscale-sass/stylesheets/_modularscale.scss';
+@import '../../node_modules/locomotive-scroll/dist/locomotive-scroll.css';
+@import 'src/scss/fonts.scss';
 @import 'src/scss/variables.scss';
+@import 'src/scss/mixins/media.scss';
 @import 'src/scss/global.scss';
 @import 'src/blocks/page/page.scss';
 @import 'src/blocks/page-footer/page-footer.scss';
