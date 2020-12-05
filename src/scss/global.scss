@@ -15,7 +15,7 @@ html {
 
 @at-root {
 
-  @-ms-viewport {
+  @viewport {
     width: device-width;
   }
 }
@@ -42,7 +42,7 @@ body {
 }
 
 [type='search']::-webkit-search-decoration {
-  -webkit-appearance: none;
+  appearance: none;
 }
 
 a,
@@ -66,7 +66,7 @@ button,
 html [type='button'],
 [type='reset'],
 [type='submit'] {
-  -webkit-appearance: button;
+  appearance: button;
 }
 
 button::-moz-focus-inner,
@@ -81,7 +81,7 @@ input[type='date'],
 input[type='time'],
 input[type='datetime-local'],
 input[type='month'] {
-  -webkit-appearance: listbox;
+  appearance: listbox;
 }
 
 textarea {
@@ -108,9 +108,6 @@ img {
 }
 
 a {
-
-  &:hover,
-  &:focus {}
 
   &[href^='tel:'] {
 
@@ -140,18 +137,6 @@ h6 {
   font-weight: 700;
   color: currentColor;
 }
-
-h1 {}
-
-h2 {}
-
-h3 {}
-
-h4 {}
-
-h5 {}
-
-h6 {}
 
 p {
   hyphens: auto;

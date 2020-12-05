@@ -1,97 +1,97 @@
 @mixin media-min-xs {
 
   @media (min-width: $screen-xs) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-min-sm {
 
   @media (min-width: $screen-sm) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-min-md {
 
   @media (min-width: $screen-md) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-min-lg {
 
   @media (min-width: $screen-lg) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-min-xl {
 
   @media (min-width: $screen-xl) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-min-xxl {
 
   @media (min-width: $screen-xxl) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-min($width) {
 
   @media (min-width: $width) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-max-xs {
 
   @media (max-width: ($screen-xs - 1px)) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-max-sm {
 
   @media (max-width: ($screen-sm - 1px)) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-max-md {
 
   @media (max-width: ($screen-md - 1px)) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-max-lg {
 
   @media (max-width: ($screen-lg - 1px)) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-max-xl {
 
   @media (max-width: ($screen-xl - 1px)) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-max-xxl {
 
   @media (max-width: ($screen-xxl - 1px)) {
-      @content;
+    @content;
   }
 }
 
 @mixin media-max($width) {
 
   @media (max-width: $width) {
-      @content;
+    @content;
   }
 }
