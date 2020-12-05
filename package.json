@@ -1,10 +1,14 @@
 {
-  "name": "new-start",
+  "name": "start",
   "version": "1.0.0",
-  "description": "",
+  "description": "Starter kit for HTML/CSS/JS pages layout.",
   "main": "index.js",
-  "author": "",
+  "author": "Vladimir Chepurnykh",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamcovert/start.git"
+  },
   "scripts": {
     "start": "gulp",
     "stylelint": "stylelint 'src/**/*.scss'; exit 0",
@@ -37,7 +41,7 @@
     "gulp-svgmin": "^3.0.0",
     "gulp-svgstore": "^7.0.1",
     "modularscale-sass": "^3.0.10",
-    "postcss": "^8.1.10",
+    "postcss": "^8.1.14",
     "postcss-easing-gradients": "^3.0.1",
     "postcss-import": "^13.0.0",
     "postcss-inline-svg": "^5.0.0",
@@ -45,7 +49,7 @@
     "pug-lint": "^2.6.0",
     "stylelint": "^13.8.0",
     "stylelint-order": "^4.1.0",
-    "webpack": "^5.8.0",
+    "webpack": "^5.10.0",
     "webpack-stream": "^6.1.1"
   },
   "dependencies": {
