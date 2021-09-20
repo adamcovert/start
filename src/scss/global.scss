@@ -25,9 +25,9 @@ body {
   flex-direction: column;
   min-height: 100%;
   margin: 0;
+  font-family: $font-f;
   word-break: break-word;
-  background-color: $bg-color;
-  font-family: $font-family;
+  background-color: $bg-c;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -52,8 +52,8 @@ input,
 label,
 select,
 textarea {
-  touch-action: manipulation;
   margin: 0;
+  touch-action: manipulation;
 }
 
 button,
@@ -112,10 +112,10 @@ a {
   &[href^='tel:'] {
 
     @media (min-width: $screen-xl) {
+      color: inherit;
+      text-decoration: inherit;
       white-space: nowrap;
       pointer-events: none;
-      text-decoration: inherit;
-      color: inherit;
     }
   }
 }
@@ -123,9 +123,9 @@ a {
 hr {
   box-sizing: content-box;
   height: 0;
-  border: 0;
   overflow: visible;
-  border-top: 1px solid $border-color;
+  border: 0;
+  border-top: 1px solid $border-c;
 }
 
 h1,
@@ -139,6 +139,7 @@ h6 {
 }
 
 p {
+  margin: 0;
   hyphens: auto;
   hyphenate-limit-chars: 6 3 3;
   hyphenate-limit-lines: 2;
@@ -146,7 +147,7 @@ p {
   hyphenate-limit-zone: 8%;
 
   & + & {
-    margin-top: 0.5rem;
+    margin-top: 1em;
   }
 }
 
@@ -170,14 +171,14 @@ li {
 
 
 ol {
-  counter-reset: section;
   list-style-type: none;
+  counter-reset: section;
 
   li {
 
     &::before {
-      counter-increment: section;
       content: counters(section, '.');
+      counter-increment: section;
     }
   }
 }
@@ -189,6 +190,6 @@ strong {
 
 blockquote {
   padding: 0;
-  margin-left: 0;
   margin-right: 0;
+  margin-left: 0;
 }

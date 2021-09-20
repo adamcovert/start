@@ -1,0 +1,25 @@
+.field-search {
+  position: relative;
+  display: block;
+
+  &__input {
+    width: 100%;
+    height: 40px;
+    padding: 10px 60px 10px 20px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.45;
+    color: currentColor;
+    background-color: $bg-c--shade;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3E%3Cpath stroke='%23333333' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M12.1759 12.1759L15 15m-.9067-7.45333c0 3.61563-2.931 6.54663-6.54663 6.54663C3.93104 14.0933 1 11.1623 1 7.54667 1 3.93104 3.93104 1 7.54667 1s6.54663 2.93104 6.54663 6.54667z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px top 50%;
+    background-size: 16px 16px;
+    border: 1px solid $border-c;
+    border-radius: $border-r;
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+  }
+}

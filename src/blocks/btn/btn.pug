@@ -1,0 +1,16 @@
+mixin btn(text, href, mods)
+
+  -
+    var allMods = '';
+    if (typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods.trim() + ' btn--' + modsList[i].trim();
+      }
+    }
+
+  if (href)
+    a.btn(href=href, class=allMods)&attributes(attributes)!=text
+
+  else
+    button.btn(class=allMods)&attributes(attributes)!= text

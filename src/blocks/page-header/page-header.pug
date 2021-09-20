@@ -5,10 +5,10 @@ mixin page-header(mods)
     if (typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' s-page-header--' + modsList[i].trim();
+        allMods = allMods + ' page-header--' + modsList[i].trim();
       }
     }
 
-  header.s-page-header(class=allMods)&attributes(attributes)
-    .s-page-header__inner
+  header.page-header(class=allMods)&attributes(attributes)
+    .page-header__inner
       block

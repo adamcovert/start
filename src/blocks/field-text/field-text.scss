@@ -1,0 +1,56 @@
+.field-text {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-bottom: 1.5rem;
+
+  &__title {
+    display: block;
+    font-size: ms(-2);
+    font-weight: 500;
+    line-height: 1.45em;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  &__input-wrap {
+    position: relative;
+    display: block;
+  }
+
+  &__input {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+    font-family: $font-f;
+    font-size: ms(-1);
+    line-height: 1.45em;
+    color: currentColor;
+    vertical-align: middle;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid currentColor;
+    border-radius: 0;
+
+    &::placeholder {
+      font-family: $font-f;
+      color: currentColor;
+      opacity: 0.25;
+    }
+
+    &:focus {
+      border-color: $primary-c;
+      outline: none;
+    }
+
+    @at-root textarea#{&} {
+      height: auto;
+      min-height: 140px;
+      padding: 15px 20px;
+      margin-top: 10px;
+      resize: vertical;
+      border: 1px solid currentColor;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+mixin field-text(props)
+
+  -
+    if (typeof(props) === 'undefined') {
+      var props = {};
+    }
+
+    var allMods = '';
+    if (typeof(props.mods) !== 'undefined' && props.mods) {
+      var modsList = props.mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' field-text--' + modsList[i].trim();
+      }
+    }
+
+  label.field-text(class=allMods)&attributes(attributes)
+    span.field-text__title!=props.title
+    span.field-text__input-wrap
+
+      if (typeof(props.isTextarea) !== 'undefined' && props.isTextarea)
+        textarea.field-text__input&attributes(props.attrs)= props.val
+
+      else
+        input.field-text__input(type=(typeof(props.attrs) !== 'undefined' && props.attrs.type) ? props.attrs.type : 'text', value=props.val)&attributes(props.attrs)

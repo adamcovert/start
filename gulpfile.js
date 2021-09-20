@@ -1,8 +1,8 @@
-const {src, dest, series, parallel, watch} = require('gulp')
+const { src, dest, series, parallel, watch } = require('gulp')
 const pug = require('gulp-pug')
 const pugLinter = require('gulp-pug-linter')
 const del = require('del')
-const sass = require('gulp-sass')
+const sass = require('gulp-sass')(require('sass'));
 const csso = require('gulp-csso')
 const browserSync = require('browser-sync').create()
 const webpackStream = require('webpack-stream')
@@ -99,7 +99,7 @@ function compileSass() {
     .pipe(sass())
     .pipe(postcss([
       autoprefixer({
-        grid: true
+        grid: 'autoplace'
       }),
       mqpacker({
         sort: true
@@ -126,9 +126,11 @@ function buildJs() {
         rules: [{
           test: /\.(js)$/,
           exclude: /(node_modules)/,
-          loader: 'babel-loader',
-          query: {
-            presets: ['@babel/preset-env']
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
           }
         }]
       },

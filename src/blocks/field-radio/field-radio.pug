@@ -1,0 +1,19 @@
+mixin field-radio(radiobuttons, title)
+
+  .field-radio&attributes(attributes)
+
+    each radio in radiobuttons
+
+      -
+        var allMods = '';
+        if (typeof(radio.mods) !== 'undefined' && radio.mods) {
+          var modsList = radio.mods.split(',');
+          for (var i = 0; i < modsList.length; i++) {
+            allMods = allMods + ' field-radio__wrap--' + modsList[i].trim();
+          }
+        }
+
+      .field-radio__wrap(class=allMods)
+        label.field-radio__label
+          input.field-radio__input(type='radio')&attributes(radio.attrs)
+          span.field-radio__text!= radio.title

@@ -5,10 +5,10 @@ mixin page-footer(mods)
     if (typeof(mods) !== 'undefined' && mods) {
       var modsList = mods.split(',');
       for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' s-page-footer--' + modsList[i].trim();
+        allMods = allMods + ' page-footer--' + modsList[i].trim();
       }
     }
 
-  footer.s-page-footer(class=allMods)&attributes(attributes)
-    .s-page-footer__inner
+  footer.page-footer(class=allMods)&attributes(attributes)
+    .page-footer__inner
       block
