@@ -1,0 +1,28 @@
+mixin field(options)
+
+  -
+    if (typeof(options) === 'undefined') {
+      var options = {};
+    }
+
+    if (typeof(options.modifiers) !== 'undefined' && options.modifiers) {
+      var allModifiers = options.modifiers.map(function(val) {
+        return 'field--' + val;
+      });
+    }
+
+  label.field(class=allModifiers)&attributes(attributes)
+
+    if (options.title)
+      span.field__title!= options.title
+
+    span.field__input-wrap
+
+      if (options.textarea)
+        textarea.field__input&attributes(options.attrs)
+
+      else
+        input.field__input(type='text')&attributes(options.attrs)
+
+      if (options.helper)
+        span.field__helper!= options.helper

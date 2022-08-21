@@ -1,7 +1,7 @@
 // import $ from 'jquery'
 // import ready from './utils/documentReady';
 import LocomotiveScroll from 'locomotive-scroll';
-import preloadImages from './utils/preloadImages';
+import preloadImages from './utils/preloadImages.js';
 
 
 // $(document).ready(() => {

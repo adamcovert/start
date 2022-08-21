@@ -23,24 +23,24 @@
     width: 100%;
     padding: 10px 0;
     margin: 0;
-    font-family: $font-f;
+    font-family: var(--font);
     font-size: ms(-1);
     line-height: 1.45em;
-    color: currentColor;
+    color: currentcolor;
     vertical-align: middle;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid currentColor;
+    border-bottom: 1px solid currentcolor;
     border-radius: 0;
 
     &::placeholder {
-      font-family: $font-f;
-      color: currentColor;
+      font-family: var(--font);
+      color: currentcolor;
       opacity: 0.25;
     }
 
     &:focus {
-      border-color: $primary-c;
+      border-color: var(--primary-c);
       outline: none;
     }
 
@@ -48,9 +48,8 @@
       height: auto;
       min-height: 140px;
       padding: 15px 20px;
-      margin-top: 10px;
       resize: vertical;
-      border: 1px solid currentColor;
+      border: 1px solid currentcolor;
     }
   }
 }

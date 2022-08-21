@@ -1,16 +1,18 @@
-mixin btn(text, href, mods)
+mixin btn(options)
 
   -
-    var allMods = '';
-    if (typeof(mods) !== 'undefined' && mods) {
-      var modsList = mods.split(',');
-      for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods.trim() + ' btn--' + modsList[i].trim();
-      }
+    if (typeof(options) === 'undefined') {
+      var options = {};
     }
 
-  if (href)
-    a.btn(href=href, class=allMods)&attributes(attributes)!=text
+    if (typeof(options.modifiers) !== 'undefined' && options.modifiers) {
+      var allModifiers = options.modifiers.map(function(val) {
+        return 'btn--' + val;
+      });
+    }
+
+  if (options.href)
+    a.btn(href=options.href, class=allModifiers)&attributes(attributes)!= options.title
 
   else
-    button.btn(class=allMods)&attributes(attributes)!= text
+    button.btn(class=allModifiers)&attributes(attributes)!= options.title

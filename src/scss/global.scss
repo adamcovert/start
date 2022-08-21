@@ -1,36 +1,21 @@
-$modularscale: (
-  base: 1em,
-  ratio: $augmented-fourth
-);
-
-html {
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
+/* stylelint-disable */
 @at-root {
 
-  @viewport {
+  @-ms-viewport {
     width: device-width;
   }
 }
+/* stylelint-enable */
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
   margin: 0;
-  font-family: $font-f;
-  word-break: break-word;
-  background-color: $bg-c;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
 }
 
 [tabindex='-1']:focus {
@@ -45,6 +30,23 @@ body {
   appearance: none;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  font-family: var(--font);
+  background-color: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
 a,
 button,
 [role='button'],
@@ -52,7 +54,6 @@ input,
 label,
 select,
 textarea {
-  margin: 0;
   touch-action: manipulation;
 }
 
@@ -89,8 +90,20 @@ textarea {
   resize: vertical;
 }
 
+img,
+picture,
+video,
+canvas,
 svg {
-  fill: currentColor;
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+svg {
 
   a &,
   button & {
@@ -102,83 +115,34 @@ svg {
   }
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-
-  &[href^='tel:'] {
-
-    @media (min-width: $screen-xl) {
-      color: inherit;
-      text-decoration: inherit;
-      white-space: nowrap;
-      pointer-events: none;
-    }
-  }
-}
-
-hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
-  border: 0;
-  border-top: 1px solid $border-c;
-}
-
+p,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
-  color: currentColor;
-}
-
-p {
-  margin: 0;
-  hyphens: auto;
-  hyphenate-limit-chars: 6 3 3;
-  hyphenate-limit-lines: 2;
-  hyphenate-limit-last: always;
-  hyphenate-limit-zone: 8%;
-
-  & + & {
-    margin-top: 1em;
-  }
+  overflow-wrap: break-word;
 }
 
 address {
   font-style: normal;
 }
 
-ul,
-ol {
-
-  ul,
-  ol {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-}
-
 li {
   line-height: inherit;
 }
 
-
 ol {
   list-style-type: none;
-  counter-reset: section;
+  counter-reset: numeric;
 
   li {
 
     &::before {
-      content: counters(section, '.');
-      counter-increment: section;
+      content: counters(numeric, '.') '. ';
+      counter-increment: numeric;
+      font-variant-numeric: tabular-nums;
     }
   }
 }
@@ -190,6 +154,4 @@ strong {
 
 blockquote {
   padding: 0;
-  margin-right: 0;
-  margin-left: 0;
 }

@@ -1,4 +1,4 @@
-mixin page-footer(options)
+mixin radio(options)
 
   -
     if (typeof(options) === 'undefined') {
@@ -7,8 +7,11 @@ mixin page-footer(options)
 
     if (typeof(options.modifiers) !== 'undefined' && options.modifiers) {
       var allModifiers = options.modifiers.map(function(val) {
-        return 'page-header--' + val;
+        return 'radio--' + val;
       });
     }
 
-  footer.page-footer(class=allModifiers)&attributes(attributes)
+  .radio(class=allModifiers)&attributes(attributes)
+    label.radio__label
+      input.radio__input(type='radio')&attributes(options.attrs)
+      span.radio__text!= options.title

@@ -1,4 +1,4 @@
-// Width
+// Breakpoints
 $screen-xs: 576px;
 $screen-sm: 768px;
 $screen-md: 992px;
@@ -6,26 +6,34 @@ $screen-lg: 1200px;
 $screen-xl: 1440px;
 $screen-xxl: 1920px;
 
-// Project colors
-$text-c: #282f33;
-$text-c--light: #fff;
+// Root
+:root {
+  --color-black: #1b1b1b;
+  --color-gray-900: #363530;
+  --color-gray-700: #66645c;
+  --color-gray-500: #989582;
+  --color-gray-300: #cfcdbe;
+  --color-gray-100: #f6f6f3;
+  --color-white: #fff;
+  --color-primary-500: #fdc239;
+  --color-primary-700: #996c02;
+  --color-info: #3974fd;
 
-$bg-c: #fff;
-$bg-c--shade: #f7fafc;
-$bg-c--dark: $text-c;
+  --section-padding: 128px;
+  --container-padding: 24px;
+  --container: 1200px;
+  --gap: 24px;
 
-$primary-c: #ff790e;
+  --font: 'Inter Variable', sans-serif;
 
-// Semantic colors
-$success-c: #16c98d;
-$warning-c: #ffc83f;
-$danger-c: #fa5e5b;
+  --border-color: var(--color-gray-300);
 
-// Fonts
-$font-f: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
-$font-f--monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --animation-fast: cubic-bezier(0.1, 0.6, 0.2, 1);
+  --animation-smooth: cubic-bezier(0.2, 0.8, 0.1, 1);
 
-// Misc
-$border-c: rgba($text-c, 0.125);
-$border-r: 4px;
-$transition-t: cubic-bezier(0.15, 0.85, 0.45, 1);
+  @media (max-width: ($screen-sm - 1px)) {
+    --container-padding: 16px;
+    --section-padding: 64px;
+    --gap: 16px;
+  }
+}

@@ -1,0 +1,17 @@
+mixin checkbox(options)
+
+  -
+    if (typeof(options) === 'undefined') {
+      var options = {};
+    }
+
+    if (typeof(options.modifiers) !== 'undefined' && options.modifiers) {
+      var allModifiers = options.modifiers.map(function(val) {
+        return 'checkbox--' + val;
+      });
+    }
+
+  .checkbox(class=allModifiers)&attributes(attributes)
+    label.checkbox__label
+      input.checkbox__input(type='checkbox')&attributes(options.attrs)
+      span.checkbox__text!= options.title

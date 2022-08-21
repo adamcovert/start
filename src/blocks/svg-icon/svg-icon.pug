@@ -1,0 +1,6 @@
+mixin svg-icon(name, width, height)
+
+  //- Usage:
+    +svg-icon('twitter', 32, 32)
+
+  svg(width=width height=height): use(xlink:href='#' + name)

@@ -4,10 +4,10 @@
 
   &__wrap {
     padding: 1rem 0;
-    border-top: 1px solid $border-c;
+    border-top: 1px solid var(--border-c);
 
     &:last-child {
-      border-bottom: 1px solid $border-c;
+      border-bottom: 1px solid var(--border-c);
     }
 
     @media (min-width: $screen-md) {
@@ -37,12 +37,12 @@
       width: 20px;
       height: 20px;
       content: '';
-      border: 1px solid currentColor;
+      border: 1px solid currentcolor;
       border-radius: 20px;
-      transition: 0.125s $transition-t;
+      transition: 0.125s var(--ease);
 
       @at-root input:checked ~ & {
-        border: 1px solid $primary-c;
+        border: 1px solid var(--primary-c);
       }
     }
 
@@ -62,10 +62,10 @@
       width: 14px;
       height: 14px;
       content: '';
-      background-color: $primary-c;
+      background-color: var(--primary-c);
       border-radius: 50%;
       opacity: 0;
-      transition: 0.125s $transition-t;
+      transition: 0.125s var(--ease);
 
       @at-root input:checked~& {
         opacity: 1;

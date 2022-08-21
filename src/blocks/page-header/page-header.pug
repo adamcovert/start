@@ -1,14 +1,14 @@
-mixin page-header(mods)
+mixin page-header(options)
 
   -
-    var allMods = '';
-    if (typeof(mods) !== 'undefined' && mods) {
-      var modsList = mods.split(',');
-      for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' page-header--' + modsList[i].trim();
-      }
+    if (typeof(options) === 'undefined') {
+      var options = {};
     }
 
-  header.page-header(class=allMods)&attributes(attributes)
-    .page-header__inner
-      block
+    if (typeof(options.modifiers) !== 'undefined' && options.modifiers) {
+      var allModifiers = options.modifiers.map(function(val) {
+        return 'page-header--' + val;
+      });
+    }
+
+  header.page-header(class=allModifiers)&attributes(attributes)

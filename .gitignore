@@ -62,6 +62,7 @@ Temporary Items
 
 # misc
 package-lock.json
+yarn.lock
 .Saved/
 _arc/
 *.log

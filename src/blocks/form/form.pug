@@ -1,91 +1,17 @@
-mixin form(mods)
-
-  //- Use:
-    +form()
-      +field-set('legend')
-
-        +field-search()
-
-        +field-rating()
-
-        +field-text({
-          title: 'title',
-          mods: '',
-          val: '',
-          attrs: {
-            name: 'comment',
-          }
-        })
-
-        +field-checkbox([
-          {
-            title: 'Checkbox 1',
-            mods: 'error',
-            attrs: {
-              name: 'checkbox',
-              checked: true,
-              id: 'checkbox-1'
-            }
-          },
-          {
-            title: 'Checkbox 2',
-            mods: 'error',
-            attrs: {
-              name: 'checkbox',
-              id: 'checkbox-2'
-            }
-          },
-        ], 'Block title')
-
-        +field-radio([
-          {
-            title: 'title',
-            mods: '',
-            attrs: {
-              name: 'radio',
-              checked: true,
-              id: 'radio-1'
-            }
-          },
-          {
-            title: 'title',
-            mods: '',
-            attrs: {
-              name: 'radio',
-              id: 'radio-2'
-            }
-          }
-        ])
-
-        +field-actions()
+mixin form(options)
 
   -
-    var allMods = '';
-    if (typeof(mods) !== 'undefined' && mods) {
-      var modsList = mods.split(',');
-      for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' form--' + modsList[i].trim();
-      }
+    if (typeof(options) === 'undefined') {
+      var options = {};
     }
 
-  form.form(class=allMods)&attributes(attributes)
-    block
-
-
-
-mixin field-set(legend, mods)
-
-  -
-    var allMods = '';
-    if (typeof(mods) !== 'undefined' && mods) {
-      var modsList = mods.split(',');
-      for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' form__fieldset--' + modsList[i].trim();
-      }
+    if (typeof(options.modifiers) !== 'undefined' && options.modifiers) {
+      var allModifiers = options.modifiers.map(function(val) {
+        return 'form--' + val;
+      });
     }
 
-  fieldset.form__fieldset(class=allMods)&attributes(attributes)
-    legend.form__legend!= legend
+  form.form(class=allModifiers)&attributes(attributes)
     block
 
 
