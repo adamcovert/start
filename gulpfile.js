@@ -38,72 +38,58 @@ export { svgSprite as svgSprite };
 const { series, parallel, watch } = pkg;
 const server = browserSync.create();
 
-
-
 function reload(done) {
   server.reload()
   done()
 }
 
-
 function serve() {
   server.init({
     server: 'build',
     open: false,
-    notify: false,
+    notify: true,
   })
 
-  watch([
-    `${path.src.root}pages/**/*.pug`,
-    `${path.src.root}blocks/**/*.pug`,
-    `${path.src.root}pug/**/*.pug`
-    ], {
-      events: ['change']
-    }, series(
-    compilePug,
-    reload
-  ));
+  watch(path.pug.watch, {
+    usePolling: true,
+    events: ['add', 'unlink']
+  }, series(pugMixins, compilePug, reload));
 
-  watch(path.src.pug, {events: ['all']}, series(
-    pugMixins,
-    compilePug,
-    reload
-  ));
+  watch(path.pug.watch, {
+    usePolling: true,
+    events: ['change']
+  }, series(compilePug, reload));
 
-  watch([`${path.src.root}scss/*.scss`, `${path.src.root}**/*.scss`], {events: ['change']}, series(
-    styles,
-    reload
-  ));
+  watch(path.styles.watch, {
+    usePolling: true,
+    events: ['add', 'unlink']
+  }, series(stylesImport, styles, reload));
 
-  watch(`${path.blocks}**/*.scss`, {events: ['add']}, series(
-    stylesImport,
-    styles,
-    reload
-  ));
+  watch(path.styles.watch, {
+    usePolling: true,
+    events: ['change']
+  }, series(styles, reload));
 
-  watch(`${path.src.root}js/**.js`, {events: ['all']}, series(
-    scripts,
-    reload
-  ));
+  watch(path.js.watch, {
+    usePolling: true,
+    events: ['all']
+  }, series(scripts, reload));
 
-  watch([`${path.blocks}sprite-svg/svg/*.svg`], {events: ['all']}, series(
-    svgSprite,
-    images,
-    reload,
-  ));
+  watch(path.svgSprite.watch, {
+    usePolling: true,
+    events: ['all']
+  }, series(svgSprite, reload));
 
-  watch(`${path.src.root}img/**/*.{jpg,jpeg,png,gif,svg,webp}`, {events: ['all']}, series(
-    images,
-    reload
-  ));
+  watch(path.img.watch, {
+    usePolling: true,
+    events: ['all']
+  }, series(images, reload));
 
-  watch(`${path.src.root}fonts/*`, {events: ['all']}, series(
-    fonts,
-    reload
-  ));
+  watch(path.fonts.watch, {
+    usePolling: true,
+    events: ['all']
+  }, series(fonts, reload));
 }
-
-
 
 const _default = series(
   parallel(clean, pugMixins),

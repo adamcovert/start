@@ -11,11 +11,11 @@ import rename from 'gulp-rename';
 const { src, dest } = pkg;
 
 const svgSprite = () =>
-  src(path.src.svgSprite)
+  src(path.svgSprite.src)
   .pipe(svgstore({
     inlineSvg: true
   }))
   .pipe(rename('sprite.svg'))
-  .pipe(dest(path.build.svgSprite))
+  .pipe(dest(path.svgSprite.build))
 
 export default svgSprite;

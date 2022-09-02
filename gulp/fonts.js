@@ -7,9 +7,9 @@ import pkg from 'gulp';
 const { src, dest } = pkg;
 
 const fonts = () =>
-  src(path.src.fonts, {
+  src(path.fonts.src, {
     allowEmpty: true
   })
-  .pipe(dest(path.build.fonts))
+  .pipe(dest(path.fonts.build))
 
 export default fonts;

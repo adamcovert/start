@@ -30,58 +30,51 @@
   appearance: none;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
   font-family: var(--font);
   background-color: var(--white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-input,
-button,
-textarea,
-select {
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
   font: inherit;
 }
 
-a,
-button,
-[role='button'],
-input,
-label,
-select,
-textarea {
+#root, #__next {
+  isolation: isolate;
+}
+
+
+a, button, [role='button'], input, label, select, textarea {
+  margin: 0;
   touch-action: manipulation;
 }
 
-button,
-input {
+button, input {
   overflow: visible;
   text-transform: none;
 }
 
-button,
-html [type='button'],
-[type='reset'],
-[type='submit'] {
+button, html [type='button'], [type='reset'], [type='submit'] {
   appearance: button;
 }
 
-button::-moz-focus-inner,
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner {
+button::-moz-focus-inner, [type='button']::-moz-focus-inner, [type='reset']::-moz-focus-inner, [type='submit']::-moz-focus-inner {
   padding: 0;
   border-style: none;
 }
 
-input[type='date'],
-input[type='time'],
-input[type='datetime-local'],
-input[type='month'] {
+input[type='date'], input[type='time'], input[type='datetime-local'], input[type='month'] {
   appearance: listbox;
 }
 
@@ -90,20 +83,8 @@ textarea {
   resize: vertical;
 }
 
-img,
-picture,
-video,
-canvas,
 svg {
-  display: block;
-  max-width: 100%;
-}
-
-img {
-  height: auto;
-}
-
-svg {
+  fill: currentColor;
 
   a &,
   button & {
@@ -115,43 +96,39 @@ svg {
   }
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
-address {
-  font-style: normal;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
 }
 
-li {
-  line-height: inherit;
+h1, .heading-1 {
+  font-family: var(--font-serif);
+  font-size: var(--ms6);
+  line-height: 0.9em;
+  letter-spacing: -0.01em;
 }
 
-ol {
-  list-style-type: none;
-  counter-reset: numeric;
+h2, .heading-2 {
+  font-size: var(--ms5);
+  line-height: 0.9em;
+  letter-spacing: -0.01em;
+}
 
-  li {
+h3, .heading-3 {
+  font-size: var(--ms4);
+}
 
-    &::before {
-      content: counters(numeric, '.') '. ';
-      counter-increment: numeric;
-      font-variant-numeric: tabular-nums;
-    }
+h4, .heading-4 {
+  font-size: var(--ms4);
+}
+
+
+p {
+
+  & + & {
+    // margin-top: 1em;
   }
-}
-
-b,
-strong {
-  font-weight: bolder;
-}
-
-blockquote {
-  padding: 0;
 }

@@ -10,7 +10,7 @@ import webpackStream from 'webpack-stream';
 const { src, dest } = pkg;
 
 const scripts = () =>
-  src(path.src.js)
+  src(path.js.src)
   .pipe(webpackStream({
     mode: 'development',
     output: {
@@ -26,6 +26,6 @@ const scripts = () =>
       }]
     }
   }))
-  .pipe(dest(path.build.js))
+  .pipe(dest(path.js.build))
 
 export default scripts;

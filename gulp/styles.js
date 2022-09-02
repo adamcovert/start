@@ -16,13 +16,15 @@ import csso from 'gulp-csso';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import browserSync from 'browser-sync';
+import postcssLogical from 'postcss-logical';
+import prefixer from 'postcss-prefixer';
 
 const sass = gulpSass(dartSass);
 const server = browserSync.create();
 const { src, dest } = pkg;
 
 const styles = () =>
-  src(`src/scss/style.scss`, {
+  src(path.styles.src, {
     sourcemaps: true
   })
   .pipe(sass())
@@ -36,12 +38,16 @@ const styles = () =>
     atImport(),
     inlineSVG(),
     postcssEasingGradients(),
-    objectFitImages()
+    objectFitImages(),
+    // prefixer({
+    //   prefix: 's-',
+    // })
+    postcssLogical()
   ]))
   .pipe(csso({
     restructure: false
   }))
-  .pipe(dest(path.build.styles, {
+  .pipe(dest(path.styles.build, {
     sourcemaps: '.'
   }))
   .pipe(server.stream());

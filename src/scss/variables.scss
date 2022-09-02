@@ -1,39 +1,68 @@
-// Breakpoints
-$screen-xs: 576px;
-$screen-sm: 768px;
-$screen-md: 992px;
-$screen-lg: 1200px;
-$screen-xl: 1440px;
-$screen-xxl: 1920px;
+// Width
+$screen-xs:               576px;
+$screen-sm:               768px;
+$screen-md:               992px;
+$screen-lg:               1200px;
+$screen-xl:               1440px;
+$screen-xxl:              1920px;
 
 // Root
 :root {
-  --color-black: #1b1b1b;
-  --color-gray-900: #363530;
-  --color-gray-700: #66645c;
-  --color-gray-500: #989582;
-  --color-gray-300: #cfcdbe;
-  --color-gray-100: #f6f6f3;
-  --color-white: #fff;
-  --color-primary-500: #fdc239;
-  --color-primary-700: #996c02;
-  --color-info: #3974fd;
+  --black: #141414;
+  --gray-900: #141414;
+  --gray-100: #f9fafB;
+  --white: #fff;
 
-  --section-padding: 128px;
-  --container-padding: 24px;
-  --container: 1200px;
-  --gap: 24px;
+  // Fonts
+  --font: ui-sans-serif, system-ui, -system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
-  --font: 'Inter Variable', sans-serif;
+  // Scale
+  --font-size: 1rem; // Base font size
+  --ratio: 1.5; // Ratio for font scale
 
-  --border-color: var(--color-gray-300);
-
-  --animation-fast: cubic-bezier(0.1, 0.6, 0.2, 1);
-  --animation-smooth: cubic-bezier(0.2, 0.8, 0.1, 1);
-
-  @media (max-width: ($screen-sm - 1px)) {
-    --container-padding: 16px;
-    --section-padding: 64px;
-    --gap: 16px;
+  // Loop to scale CSS font size variables down
+  @for $i from -2 through -1 {
+    $next--ms: $i + 1;
+    --ms#{$i}: calc(var(--ms#{$next--ms}) / var(--ratio));
   }
+
+  // Loop to scale CSS font size variables up
+  @for $i from 0 through 6 {
+    @if $i == 0 {
+      --ms#{$i}: var(--font-size);
+    } @else {
+      --ms#{$i}: calc(var(--ms#{$previous--ms}) * var(--ratio));
+    }
+    $previous--ms: $i;
+  }
+
+  --ease: cubic-bezier(0.15, 0.85, 0.45, 1);
+  --ease-faster: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --container: 1400px;
+  --container-narrow: 1000px;
+  --section-padding: clamp(4em, 25vh, 12em);
+  --container-padding: clamp(2em, 10vw, 4em);
+  --gap: calc(var(--container-padding) / 2);
+  --border-radius: 16px;
+
+  @media (max-width: ($screen-xs - 1px)) {
+    --section-padding: max(2.4em, 10vh);
+    --container-padding: clamp(1.2em, 4vw, 2.4em);
+    --border-radius: 12px;
+  }
+}
+
+
+// Mixins
+
+@mixin field {
+  padding-top: var(--section-padding);
+  padding-right: var(--container-padding);
+  padding-bottom: var(--section-padding);
+  padding-left: var(--container-padding);
+}
+
+@mixin container {
+  width: min(1400px, 100%);
+  margin: 0 auto;
 }

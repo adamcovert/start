@@ -1,4 +1,4 @@
-.field-radio {
+.radio {
   $block-name: &;
   display: block;
 
@@ -46,15 +46,6 @@
       }
     }
 
-    @at-root input:checked ~ & {
-      opacity: 1;
-    }
-
-    @at-root input:focus ~ &:before {
-      outline: 0;
-      box-shadow: none;
-    }
-
     &:after {
       position: absolute;
       top: 2px;
@@ -67,7 +58,7 @@
       opacity: 0;
       transition: 0.125s var(--ease);
 
-      @at-root input:checked~& {
+      @at-root input:checked ~ & {
         opacity: 1;
       }
     }
