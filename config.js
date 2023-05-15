@@ -47,7 +47,8 @@ const path = {
   stylesBefore: [
     'src/scss/fonts.scss',
     'src/scss/variables.scss',
-    'src/scss/mixins/media.scss',
+    'src/scss/typography.scss',
+    'src/scss/colors.scss',
     'src/scss/global.scss'
   ]
 };

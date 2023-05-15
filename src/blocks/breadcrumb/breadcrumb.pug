@@ -1,25 +1,12 @@
-mixin breadcrumb(options)
+mixin breadcrumb(options = {})
+  - var allModifiers = options.modifiers ? options.modifiers.map(function(val) {
+    return 'breadcrumb--' + val;
+  }) : null;
 
-  -
-    if (typeof(options) === 'undefined') {
-      var options = {};
-    }
-
-    if (typeof(options.modifiers) !== 'undefined' && options.modifiers) {
-      var allModifiers = options.modifiers.map(function(val) {
-        return 'breadcrumb--' + val;
-      });
-    }
+  - var items = options.items || [];
 
   nav.breadcrumb(aria-label='breadcrumb', class=allModifiers)&attributes(attributes)
     ul.breadcrumb__list
-
-      each item in options.items
-
-        if item.href
-          li.breadcrumb__item
-            a.breadcrumb__link(href=item.href)= item.title
-
-        else
-          li.breadcrumb__item.breadcrumb__item--is-active
-            a.breadcrumb__link= item.title
+      each item in items
+        li.breadcrumb__item(class=item.href ? '' : 'breadcrumb__item--is-active')
+          a.breadcrumb__link(href=item.href ? item.href : false)= item.title

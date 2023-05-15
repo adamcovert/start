@@ -11,8 +11,4 @@ mixin btn(options)
       });
     }
 
-  if (options.href)
-    a.btn(href=options.href, class=allModifiers)&attributes(attributes)!= options.title
-
-  else
-    button.btn(class=allModifiers)&attributes(attributes)!= options.title
+  #{options.href ? 'a' : 'button'}.btn(href=options.href, class=allModifiers)&attributes(attributes)= options.title

@@ -1,0 +1,22 @@
+$color-gray-hue: 220deg;
+$color-gray-sat: 8%;
+
+$color-gray-lightnesses: (
+  100: 97%,
+  200: 92%,
+  300: 80%,
+  400: 60%,
+  500: 50%,
+  600: 40%,
+  700: 30%,
+  800: 20%,
+  900: 10%
+);
+
+:root {
+  --color-gray-hue: #{$color-gray-hue};
+  --color-gray-sat: #{$color-gray-sat};
+  @each $key, $value in $color-gray-lightnesses {
+    --color-gray-#{$key}: hsl(var(--color-gray-hue), var(--color-gray-sat), $value);
+  }
+}

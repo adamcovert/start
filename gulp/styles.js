@@ -32,20 +32,23 @@ const styles = () =>
     autoprefixer({
       grid: 'autoplace'
     }),
-    mqpacker({
-      sort: true
-    }),
+    // mqpacker({
+    //   sort: true
+    // }),
     atImport(),
     inlineSVG(),
     postcssEasingGradients(),
     objectFitImages(),
+    postcssLogical(),
     // prefixer({
     //   prefix: 's-',
     // })
-    postcssLogical()
   ]))
   .pipe(csso({
-    restructure: false
+    restructure: false,
+    beautify: true,
+    debug: true,
+    forceMediaMerge: true
   }))
   .pipe(dest(path.styles.build, {
     sourcemaps: '.'

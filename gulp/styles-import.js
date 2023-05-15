@@ -5,7 +5,6 @@ import path from '../config.js';
 import { writeFileSync } from 'fs';
 import { getDirectories } from './utils/get-directories.js';
 
-
 let scssImportsList = [];
 
 const stylesImport = (cb) => {
@@ -39,5 +38,3 @@ function getArraysDiff(a1, a2) {
 }
 
 export default stylesImport;
-
-

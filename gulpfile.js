@@ -7,9 +7,12 @@ import pkg from 'gulp';
 // Plugins
 import browserSync from 'browser-sync';
 
-// Tasks
-import clean from './gulp/clean.js';
-export { clean as clean };
+
+import cleanBuildDir from './gulp/cleanBuildDir.js';
+import copyFontsToBuildDir from './gulp/copyFontsToBuildDir.js';
+
+
+
 
 import pugMixins from './gulp/pug-mixins.js';
 export { pugMixins as pugMixins };
@@ -25,9 +28,6 @@ export { styles as styles };
 
 import scripts  from './gulp/scripts.js';
 export { scripts as scripts };
-
-import fonts from './gulp/fonts.js';
-export { fonts as fonts };
 
 import images from './gulp/images.js';
 export { images as images };
@@ -88,12 +88,12 @@ function serve() {
   watch(path.fonts.watch, {
     usePolling: true,
     events: ['all']
-  }, series(fonts, reload));
+  }, series(copyFontsToBuildDir, reload));
 }
 
 const _default = series(
-  parallel(clean, pugMixins),
-  parallel(compilePug, stylesImport, svgSprite, images, fonts),
+  parallel(cleanBuildDir, pugMixins),
+  parallel(compilePug, stylesImport, svgSprite, images, copyFontsToBuildDir),
   parallel(styles, scripts),
   serve
 );

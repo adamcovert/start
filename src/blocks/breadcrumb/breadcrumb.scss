@@ -2,16 +2,13 @@
 
   &__list {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 0;
+    flex-flow: row wrap;
     list-style: none;
   }
 
   &__item {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-flow: row nowrap;
   }
 
   &__link {

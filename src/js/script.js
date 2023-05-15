@@ -1,7 +1,7 @@
 // import $ from 'jquery'
 // import ready from './utils/documentReady';
-import LocomotiveScroll from 'locomotive-scroll';
-import preloadImages from './utils/preloadImages.js';
+// import LocomotiveScroll from 'locomotive-scroll';
+// import preloadImages from './utils/preloadImages.js';
 
 
 // $(document).ready(() => {
@@ -12,14 +12,14 @@ import preloadImages from './utils/preloadImages.js';
 
 
 // Preload images
-preloadImages().then(() => {
+// preloadImages().then(() => {
 
   // Initialize the Locomotive scroll
-  const scroll = new LocomotiveScroll({
-      el: document.querySelector('[data-scroll-container]'),
-      smooth: true
-  });
-});
+  // const scroll = new LocomotiveScroll({
+      // el: document.querySelector('[data-scroll-container]'),
+      // smooth: true
+  // });
+// });
 
 
 

@@ -7,6 +7,11 @@
   font-size: 100%;
   line-height: 1.5em;
 
+  &__body {
+    line-height: var(--base-line-height);
+    font-family: var(--font-family);
+  }
+
   &__sprite-svg {
     display: none;
   }
