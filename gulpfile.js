@@ -1,39 +1,15 @@
-// Paths
 import path from './config.js';
-
-// Gulp
 import pkg from 'gulp';
-
-// Plugins
 import browserSync from 'browser-sync';
-
-
 import cleanBuildDir from './gulp/cleanBuildDir.js';
 import copyFontsToBuildDir from './gulp/copyFontsToBuildDir.js';
-
-
-
-
-import pugMixins from './gulp/pug-mixins.js';
-export { pugMixins as pugMixins };
-
-import compilePug from './gulp/pug.js';
-export { compilePug as compilePug };
-
-import stylesImport from './gulp/styles-import.js'
-export { stylesImport as stylesImport }
-
+import pugMixins from './gulp/pugMixins.js';
+import compilePug from './gulp/compilePug.js';
+import stylesImport from './gulp/stylesImport.js'
 import styles from './gulp/styles.js';
-export { styles as styles };
-
 import scripts  from './gulp/scripts.js';
-export { scripts as scripts };
-
 import images from './gulp/images.js';
-export { images as images };
-
-import svgSprite from './gulp/svg-sprite.js';
-export { svgSprite as svgSprite };
+import svgSprite from './gulp/svgSprite.js';
 
 const { series, parallel, watch } = pkg;
 const server = browserSync.create();

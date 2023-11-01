@@ -1,7 +1,4 @@
-// Paths
 import path from '../config.js';
-
-// Gulp
 import pkg from 'gulp';
 
 const { src, dest } = pkg;

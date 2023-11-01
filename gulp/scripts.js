@@ -1,31 +1,13 @@
-// Paths
 import path from '../config.js';
-
-// Gulp
 import pkg from 'gulp';
-
-// Plugins
 import webpackStream from 'webpack-stream';
+import webpackConfig from '../webpack.config.js';
 
 const { src, dest } = pkg;
 
 const scripts = () =>
   src(path.js.src)
-  .pipe(webpackStream({
-    mode: 'development',
-    output: {
-      filename: '[name].js'
-    },
-    module: {
-      rules: [{
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
-      }]
-    }
-  }))
+  .pipe(webpackStream(webpackConfig))
   .pipe(dest(path.js.build))
 
 export default scripts;

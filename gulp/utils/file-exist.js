@@ -1,4 +1,3 @@
-// Methods
 import { accessSync, F_OK } from 'fs';
 
 export function fileExist(filepath) {
