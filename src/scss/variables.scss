@@ -1,50 +1,6 @@
-// Width
-$screen-xs:               480px;
-$screen-sm:               768px;
+$screen-xs:                480px;
+$screen-sm:                768px;
 $screen-md:               1024px;
 $screen-lg:               1200px;
 $screen-xl:               1440px;
 $screen-xxl:              1920px;
-
-:root {
-  --black: #141414;
-  --gray-900: #141414;
-  --gray-100: #f9fafb;
-  --white: #fff;
-
-  --font: ui-sans-serif, system-ui, -system-ui, -apple-system, blinkmacsystemfont, sans-serif;
-  --font-size: 1rem; // Base font size
-  --ratio: 1.5; // Ratio for font scale
-
-  // Loop to scale CSS font size variables down
-  @for $i from -2 through -1 {
-    $next--ms: $i + 1;
-    --ms#{$i}: calc(var(--ms#{$next--ms}) / var(--ratio));
-  }
-
-  // Loop to scale CSS font size variables up
-  @for $i from 0 through 6 {
-    @if $i == 0 {
-      --ms#{$i}: var(--font-size);
-    }
-    @else {
-      --ms#{$i}: calc(var(--ms#{$previous--ms}) * var(--ratio));
-    }
-    $previous--ms: $i;
-  }
-
-  --ease: cubic-bezier(0.15, 0.85, 0.45, 1);
-  --ease-faster: cubic-bezier(0.075, 0.82, 0.165, 1);
-  --container: 1400px;
-  --container-narrow: 1000px;
-  --section-padding: clamp(4em, 25vh, 12em);
-  --container-padding: clamp(2em, 10vw, 4em);
-  --gap: calc(var(--container-padding) / 2);
-  --border-radius: 16px;
-
-  @media (max-width: ($screen-xs - 1px)) {
-    --section-padding: max(2.4em, 10vh);
-    --container-padding: clamp(1.2em, 4vw, 2.4em);
-    --border-radius: 12px;
-  }
-}

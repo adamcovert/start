@@ -1,39 +1,11 @@
-[tabindex='-1']:focus {
-  outline: none !important;
-}
-
-[role='button'] {
-  cursor: pointer;
-}
-
-[type='search']::-webkit-search-decoration {
-  appearance: none;
-}
-
-a, button, [role='button'], input, label, select, textarea {
-  margin: 0;
-  touch-action: manipulation;
-}
-
-button, input {
-  overflow: visible;
-  text-transform: none;
-}
-
-button, html [type='button'], [type='reset'], [type='submit'] {
-  appearance: button;
-}
-
-button::-moz-focus-inner, [type='button']::-moz-focus-inner, [type='reset']::-moz-focus-inner, [type='submit']::-moz-focus-inner {
-  padding: 0;
-  border-style: none;
-}
-
-input[type='date'], input[type='time'], input[type='datetime-local'], input[type='month'] {
-  appearance: listbox;
-}
-
-textarea {
-  overflow: auto;
-  resize: vertical;
+:root {
+  --ease: cubic-bezier(0.15, 0.85, 0.45, 1);
+  --ease-faster: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --container: 1400px;
+  --container-narrow: 1000px;
+  --section-padding: clamp(4em, 25vh, 12em);
+  --container-padding: clamp(2em, 10vw, 4em);
+  --gap: calc(var(--container-padding) / 2);
+  --border-radius: 16px;
+  --outline-size: max(2px, 0.15em);
 }

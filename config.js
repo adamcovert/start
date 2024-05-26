@@ -45,11 +45,12 @@ const path = {
   },
   blocks: 'src/blocks/',
   stylesBefore: [
-    'src/scss/fonts.scss',
     'src/scss/variables.scss',
+    'src/scss/reset.scss',
+    'src/scss/global.scss',
+    'src/scss/fonts.scss',
     'src/scss/typography.scss',
-    'src/scss/colors.scss',
-    'src/scss/global.scss'
+    'src/scss/colors.scss'
   ]
 };
 

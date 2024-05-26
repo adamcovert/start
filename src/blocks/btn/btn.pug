@@ -1,14 +1,5 @@
-mixin btn(options)
+mixin btn(options = {})
 
-  -
-    if (typeof(options) === 'undefined') {
-      var options = {};
-    }
-
-    if (typeof(options.modifiers) !== 'undefined' && options.modifiers) {
-      var allModifiers = options.modifiers.map(function(val) {
-        return 'btn--' + val;
-      });
-    }
+  - const allModifiers = options.modifiers?.map(modifier => `btn--${modifier}`).join(' ');
 
   #{options.href ? 'a' : 'button'}.btn(href=options.href, class=allModifiers)&attributes(attributes)= options.title

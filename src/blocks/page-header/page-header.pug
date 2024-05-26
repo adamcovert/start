@@ -1,14 +1,5 @@
-mixin page-header(options)
+mixin page-header(options = {})
 
-  -
-    if (typeof(options) === 'undefined') {
-      var options = {};
-    }
-
-    if (typeof(options.modifiers) !== 'undefined' && options.modifiers) {
-      var allModifiers = options.modifiers.map(function(val) {
-        return 'page-header--' + val;
-      });
-    }
+  - const allModifiers = options.modifiers?.map(modifier => `page-header--${modifier}`).join(' ');
 
   header.page-header(class=allModifiers)&attributes(attributes)

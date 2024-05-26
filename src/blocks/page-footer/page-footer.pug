@@ -1,14 +1,5 @@
-mixin page-footer(options)
+mixin page-footer(options = {})
 
-  -
-    if (typeof(options) === 'undefined') {
-      var options = {};
-    }
-
-    if (typeof(options.modifiers) !== 'undefined' && options.modifiers) {
-      var allModifiers = options.modifiers.map(function(val) {
-        return 'page-footer--' + val;
-      });
-    }
+  - const allModifiers = options.modifiers?.map(modifier => `page-footer--${modifier}`).join(' ');
 
   footer.page-footer(class=allModifiers)&attributes(attributes)

@@ -1,9 +1,6 @@
 .page {
   min-width: 320px;
   min-height: 100%;
-  text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -ms-overflow-style: scrollbar;
   font-size: 100%;
   line-height: 1.5em;
 
@@ -30,3 +27,6 @@
     flex-shrink: 0;
   }
 }
+
+
+

@@ -1,26 +1,22 @@
 :root {
   --font-family: ui-sans-serif, system-ui, sans-serif;
   --base-font-size: 1rem;
-  --base-line-height: 1.4;
+  --base-line-height: 1.5;
   --ratio: 1.414;
 
-  /* Loop through negative font sizes */
+  // Loop to scale CSS font size variables down
   @for $i from -2 through -1 {
-    $next-size: $i + 1;
-    --font-size-#{$i}: var(--font-size-#{$next-size}) / var(--ratio);
+    $previous--ms: $i + 1;
+    --font-size-#{$i}: calc(var(--font-size-#{$previous--ms}) / var(--ratio));
   }
 
-  /* Loop through positive font sizes */
-  @for $i from 0 through 6 {
-    $previous-size: $i - 1;
-
-    /* Set base font size */
+  // Loop to scale CSS font size variables up
+  @for $i from 0 through 7 {
     @if $i == 0 {
       --font-size-#{$i}: var(--base-font-size);
+    } @else {
+      --font-size-#{$i}: calc(var(--font-size-#{$next--ms}) * var(--ratio));
     }
-    /* Calculate font sizes based on ratio */
-    @else {
-      --font-size-#{$i}: var(--font-size-#{$previous-size}) * var(--ratio);
-    }
+    $next--ms: $i;
   }
 }

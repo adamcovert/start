@@ -1,45 +1,116 @@
-*, *::before, *::after {
+/* Use a more-intuitive box-sizing model. */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+/* Remove default margin. */
 * {
   margin: 0;
 }
 
-html, body {
-  height: 100%;
-}
-
-body {
+/* Prevent font size inflation */
+html {
+  -ms-overflow-style: scrollbar;
+  -webkit-text-size-adjust: none;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
-img, picture, video, canvas, svg {
-  display: block;
+/* Remove list styles on ul, ol elements with a class */
+ul[class],
+ol[class] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* Pretty text wrapping */
+p {
+  text-wrap: pretty;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
   max-width: 100%;
+  display: block;
 }
 
-input, button, textarea, select {
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
 }
 
-svg {
-  fill: currentColor;
-
-  a &,
-  button & {
-    pointer-events: none;
-  }
-
-  &:not(:root) {
-    overflow: hidden;
-  }
+/* Baseline for default links */
+a:not([class]) {
+  text-decoration-thickness: max(0.08em, 1px);
+  text-underline-offset: 0.15em;
 }
 
-#root, #__next {
+:focus-visible {
+  outline: var(--outline-width, var(--outline-size)) var(--outline-style, solid)
+    var(--outline-color, currentColor);
+  outline-offset: var(--outline-offset, var(--outline-size));
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Scroll padding allowance below focused elements to ensure they are clearly in view */
+:focus {
+  scroll-margin-block-end: 8vh;
+}
+
+/* Create a root stacking context */
+#root,
+#__next {
   isolation: isolate;
 }
